@@ -45,7 +45,6 @@ db.people.save({ firstname: "Maria", lastname: "Raboy" })
 ```
 db.people.find({ firstname: "Nic" })
 ```
-```
 #let's recreate the stuff
 ```
 ctrl c + ctrl d
