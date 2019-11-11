@@ -24,16 +24,27 @@ docker run -d -v /code/github/ensiie-mongodb-env/share:/share -p 27017-27019:270
 docker exec -it mongodb bash
 
 #let's go !
+```
 mongo
+```
 #let's read db
+```
 show dbs
+```
 #To create a new database, we can use a multi-step process, the first being to define the database we wish to use:
+```
 use thepolyglotdeveloper
-#We’re using the database thepolyglotdeveloper, but it doesn’t exist until we start creating collections and data. To create a collection with data, we can do something like this:
+```
+#We’re using the database thepolyglotdeveloper, but it doesn’t exist until we start creating collections and data. To create a collection with data, we can 
+#do something like this:
+```
 db.people.save({ firstname: "Nic", lastname: "Raboy" })
 db.people.save({ firstname: "Maria", lastname: "Raboy" })
+```
 #With two documents created in a new people collection in our thepolyglotdeveloper database, we can query for data using something like the following:
+```
 db.people.find({ firstname: "Nic" })
+```
 ```
 #let's recreate the stuff
 ```
@@ -51,8 +62,9 @@ docker stop mongodb && docker rm mongodb
 docker run -d -v /code/github/ensiie-mongodb-env/state:/data/db -v /code/github/ensiie-mongodb-env/share:/share -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4
 
 #let's load our files
+```
 mongoimport --host localhost --port 27017 --db forum --collection profiles --file /share/profiles.json --jsonArray
-
+```
 #let's load spyder... and start the pdf stuff :D
 ```
 from pymongo import MongoClient
